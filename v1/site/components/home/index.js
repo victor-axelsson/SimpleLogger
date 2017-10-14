@@ -17,7 +17,7 @@ class Home extends Component {
 
     render() {
         return (
-            <div className={ styles.container }>
+            <div>
                <p>This is the home screen</p>
             </div>
         );

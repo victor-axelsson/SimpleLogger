@@ -17,7 +17,9 @@ export default class App extends React.Component {
 
     _getInitialState() {
         let storeState = store.getState();
-        return {};
+        return {
+        	route: storeState.navigation.route.name
+        };
     }
 
     render() {
@@ -25,6 +27,7 @@ export default class App extends React.Component {
             <Provider store={ store }>
                 <div style={ { height: '100%' } }>
                     <p>This is the app from react</p>
+                    { getRoute(this.state.route) }
                 </div>
             </Provider>
         );
