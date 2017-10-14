@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { CONSTANTS, COLORS } from 'core/constants';
+import { CONSTANTS, COLORS, ROUTES } from 'core/constants';
 import { getAllNamespaces } from 'api/namespaceApi'
 
 class NamespaceRow extends Component {
@@ -17,6 +17,10 @@ class NamespaceRow extends Component {
         };
     }
 
+    gotoNamespaceDetails(){
+        this.props.gotoNamespaceDetail(this.props.namespace)
+    }
+
     render() {
         return (
             <div style={this.state.hover ? styles.onHover: styles.onNonHover }onMouseEnter={() => {
@@ -30,7 +34,7 @@ class NamespaceRow extends Component {
             }}
             onClick={(e) => {
                 e.stopPropagation();
-                console.log("Press: " + this.props.namespace)
+                this.gotoNamespaceDetails(); 
             }}>
                <p > - {this.props.name} </p>
                { this.props.children }
@@ -61,6 +65,21 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getNamespaces : () => {
             getAllNamespaces(dispatch); 
+        },
+        gotoNamespaceDetail: (namespace) => {
+            dispatch({
+                type: CONSTANTS.SET_ACTIVE_NAMESPACE,
+                payload: namespace
+            })
+            dispatch({
+                type: CONSTANTS.NAVIGATE_TO_PAGE,
+                payload: {
+                    route: {
+                        title: namespace,
+                        name: ROUTES.NAMESPACE_DETAILS
+                    }
+                }
+            })
         }
     };
 }

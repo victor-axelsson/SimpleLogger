@@ -60,4 +60,11 @@ sqlite.getAllNamespaces = (callback) => {
     });
 }
 
+sqlite.getEntriesByNamespace = (namespace, callback) => {
+    console.log(namespace)
+    runQuery(function() {
+        db.all("SELECT * FROM entries WHERE namespace LIKE ?", namespace + "%", callback);
+    });
+}
+
 module.exports = sqlite;

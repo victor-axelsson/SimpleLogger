@@ -24,4 +24,13 @@ logHandler.addLog = (req, res) => {
 }
 
 
+logHandler.getEntryFromNamespace = (req, res) => {
+	db.getEntriesByNamespace(req.params.namespace, (err, entries) => {
+		if(err) throw err; 
+
+		res.status(200).send(entries)
+	});
+}
+
+
 module.exports = logHandler; 

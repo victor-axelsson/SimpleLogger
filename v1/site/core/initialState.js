@@ -4,7 +4,8 @@ import { ROUTES } from 'core/constants'
 export const initialState = {
     user: {},
     appState: {
-        namespaces: null
+        namespaces: null,
+        entries: null
     },
     navigation: {
         route: {

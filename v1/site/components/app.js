@@ -14,12 +14,27 @@ export default class App extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = this._getInitialState();
+        this.unsubscribe = store.subscribe(() => {
+            this._onChange();
+            this.forceUpdate();
+        });
+    }
+
+    _onChange(){
+    	this.setState(this._getInitialState());
+    }
+
+    componentWillUnmount() {
+        if (this.unsubscribe) {
+            this.unsubscribe();
+            this.unsubscribe = null;
+        }
     }
 
     _getInitialState() {
         let storeState = store.getState();
         return {
-        	route: storeState.navigation.route.name
+        	route: storeState.navigation.route
         };
     }
 

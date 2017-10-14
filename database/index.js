@@ -19,4 +19,8 @@ database.getAllNamespaces = (callback) => {
 	ds.getAllNamespaces(callback)
 }
 
+database.getEntriesByNamespace = (namspace, callback) => {
+	ds.getEntriesByNamespace(namspace, callback)
+}
+
 module.exports = database; 

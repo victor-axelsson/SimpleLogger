@@ -29,6 +29,15 @@ endpoints.loginUser = {
     handler: loggHandler.addLog
 }
 
+endpoints.getEntryFromNamespace = {
+    url: '/v1/entry/:namespace(*)',
+    method: 'get',
+    middleware: [],
+    handler: loggHandler.getEntryFromNamespace
+}
+
+
+
 endpoints.getAllNamespaces = {
     url: '/v1/namespace',
     method: 'get',

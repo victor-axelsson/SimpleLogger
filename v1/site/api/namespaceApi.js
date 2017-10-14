@@ -11,3 +11,14 @@ export function getAllNamespaces(dispatch){
         }); 
     });
 }
+
+export function getDataEntries(namespace, dispatch){
+	get('/entry' + namespace, (err, res) => {
+        if(err) throw err; 
+
+        dispatch({
+        	type: CONSTANTS.GOT_ENTRIES,
+        	payload: res
+        }); 
+    });
+}

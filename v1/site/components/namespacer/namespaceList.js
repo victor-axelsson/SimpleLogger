@@ -47,7 +47,8 @@ class NamespaceList extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{padding: 10}}>
+                <h1>Namespaces</h1>
                {this.buildNamespaceTree()}
             </div>
         );
