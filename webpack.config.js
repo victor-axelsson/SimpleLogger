@@ -41,7 +41,7 @@ module.exports = {
             api: 'v1/site/api',
             components: 'v1/site/components',
             core: 'v1/site/core',
-            root: './'
+            root: '/'
         },
         extensions: ['.js', '.jsx', '.png', '.mp3']
     },

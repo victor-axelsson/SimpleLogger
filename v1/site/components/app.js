@@ -5,6 +5,7 @@ import MyApp from '../core/reducers';
 import { getRoute } from './router';
 import { CONSTANTS } from '../core/constants';
 import { ENV } from '../../../env';
+import Header from './header'
 
 const store = createStore(MyApp);
 
@@ -26,7 +27,7 @@ export default class App extends React.Component {
         return (
             <Provider store={ store }>
                 <div style={ { height: '100%' } }>
-                    <p>This is the app from react</p>
+                	<Header />
                     { getRoute(this.state.route) }
                 </div>
             </Provider>

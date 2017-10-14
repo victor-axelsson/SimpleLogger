@@ -11,4 +11,12 @@ database.addEntry = (entry, callback) => {
 	ds.addEntry(entry, callback); 
 }
 
+database.getAllEntries = (callback) => {
+	ds.getAllEntries(callback); 
+}
+
+database.getAllNamespaces = (callback) => {
+	ds.getAllNamespaces(callback)
+}
+
 module.exports = database; 

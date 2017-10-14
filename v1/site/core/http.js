@@ -1,6 +1,6 @@
 import { CONSTANTS } from './constants';
 import { getData, saveData, delData } from './persistentStorage';
-import { ENV } from './env';
+import ENV  from 'env';
 
 const LOG = ENV.LOG.NETWORK;
 const warn = ENV.LOG.WARNINGS ? console.warn.bind(console) : console.log.bind(console, '[WARNING]');

@@ -1,10 +1,10 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { CONSTANTS } from 'core/constants';
-import NamespaceList from '../namespacer/namespaceList'
+import { CONSTANTS, COLORS } from 'core/constants';
 
-class Home extends Component {
+
+class Header extends Component {
 
     constructor(props, context) {
         super(props, context);
@@ -17,19 +17,21 @@ class Home extends Component {
 
     render() {
         return (
-            <div>
-               <NamespaceList />
+            <div style={{ backgroundColor: COLORS.PRIMARY_DARK, padding: 20, textAlign: 'center' }}>
+              <h1 style={{color: COLORS.PRIMARY_LIGHT}}> { this.props.title }</h1>
             </div>
         );
     }
 }
 
 const mapStateToProps = (state) => {
-    return {};
+    return {
+        title: state.navigation.route.title
+    };
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

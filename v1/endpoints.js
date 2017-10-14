@@ -1,6 +1,7 @@
 var endpoints = {};
 var userHandler = require('./handlers/userHandler');
 var loggHandler = require('./handlers/loggHandler')
+var namspaceHandler = require('./handlers/namspaceHandler')
 
 var middleware = require('./middleware/middleware');
 var env = require("../env");
@@ -26,6 +27,13 @@ endpoints.loginUser = {
     method: 'post',
     middleware: [],
     handler: loggHandler.addLog
+}
+
+endpoints.getAllNamespaces = {
+    url: '/v1/namespace',
+    method: 'get',
+    middleware: [],
+    handler: namspaceHandler.getAllNamespaces
 }
 
 

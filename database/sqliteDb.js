@@ -48,4 +48,16 @@ sqlite.addEntry = (entry, callback) => {
     });
 }
 
+sqlite.getAllEntries = (callback) => {
+    runQuery(function() {
+        db.all("SELECT * from entries", callback);
+    });
+}
+
+sqlite.getAllNamespaces = (callback) => {
+    runQuery(function() {
+        db.all("SELECT DISTINCT namespace from entries", callback);
+    });
+}
+
 module.exports = sqlite;

@@ -3,7 +3,9 @@ import { ROUTES } from 'core/constants'
 
 export const initialState = {
     user: {},
-    appState: {},
+    appState: {
+        namespaces: null
+    },
     navigation: {
         route: {
             name: ROUTES.HOME,
